@@ -1,15 +1,15 @@
 import sys
 
 def somadoronoff(l, a, state):
-    estado = state  # Mantém o estado entre chamadas
-    res = a  # Soma acumulada
+    estado = state  
+    res = a  
     i = 0
 
     while i < len(l):
         valor = 0
 
         if l[i] in "0123456789":
-            if estado[0] == "ON":  # Usa estado[0] para modificar corretamente
+            if estado[0] == "ON":  
                 while i < len(l) and l[i] in "0123456789":
                     valor = valor * 10 + int(l[i])
                     i += 1
@@ -19,15 +19,15 @@ def somadoronoff(l, a, state):
                     i += 1
 
         elif l[i:i + 2].lower() == "on":
-            estado[0] = "ON"  # Atualiza o estado corretamente
+            estado[0] = "ON" 
             i += 2
 
         elif l[i:i + 3].lower() == "off":
-            estado[0] = "OFF"  # Atualiza o estado corretamente
+            estado[0] = "OFF"  
             i += 3
 
         elif l[i] == '=':
-            print(res)  # Imprime o resultado parcial ao encontrar "="
+            print(res)  
             i += 1
 
         else:
