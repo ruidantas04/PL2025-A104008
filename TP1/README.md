@@ -1,7 +1,8 @@
 # Titulo
 TP1 - Somador On Off
 # Autor
-Rui Gonçalves Dantas - a104008
+Rui Gonçalves Dantas - a104008 - 2025-02-13
+!(github.com/ruidantas04/PL2025-A104008/e034a3fe-4b4a-4a78-8cf5-8c200b1753be.jpg)
 # Objetivo
 Criar um programa em Pyrhon - Somador on/off , que some todas as sequenciasde digitos que encontre num texto. Mas com as seguintes indicações:
 Sempre que encontrar a string "Off" em qualquer combinação de maiúsculas e minúsculas, esse comportamento é desligado;
