@@ -3,28 +3,27 @@ from collections import defaultdict
 
 def limpar_csv_sem_csv(caminho_arquivo):
     dados = []
-    linha_atual = ""  # Para armazenar linhas de descrições longas
-    dentro_de_aspas = False  # Para controlar se estamos dentro de uma descrição entre aspas
+    linha_atual = ""
+    dentro_de_aspas = False
 
     with open(caminho_arquivo, "r", encoding="utf-8") as f:
-        next(f)  # Pula a primeira linha (cabeçalhos)
+        next(f)
         for linha in f:
-            linha = linha.strip()  # Remove espaços extras ao redor
+            linha = linha.strip()
 
             if dentro_de_aspas:
-                linha_atual += " " + linha  # Junta as linhas na mesma string
-                if linha.count('"') % 2 != 0:  # Se encontramos um número ímpar de aspas, fechamos a descrição
+                linha_atual += " " + linha
+                if linha.count('"') % 2 != 0:
                     dentro_de_aspas = False
-                    dados.append(separar_campos(linha_atual))  # Processamos a linha completa agora
-                    linha_atual = ""  # Resetamos a linha acumulada
+                    dados.append(separar_campos(linha_atual))
+                    linha_atual = ""
                 continue
 
-            if linha.count('"') % 2 != 0:  # Se a linha tem aspas ímpares, significa que começou uma descrição longa
+            if linha.count('"') % 2 != 0:
                 dentro_de_aspas = True
-                linha_atual = linha  # Começamos a acumular
+                linha_atual = linha
                 continue
 
-            # Linha normal, processamos e adicionamos
             if linha:
                 dados.append(separar_campos(linha))
 
@@ -32,68 +31,62 @@ def limpar_csv_sem_csv(caminho_arquivo):
 
 
 def separar_campos(linha):
-    """Separa os campos respeitando aspas e ponto e vírgula."""
     campos = []
     campo_atual = ""
     dentro_de_aspas = False
 
     for char in linha:
         if char == '"':
-            dentro_de_aspas = not dentro_de_aspas  # Alterna estado de dentro/fora de aspas
+            dentro_de_aspas = not dentro_de_aspas
         elif char == ";" and not dentro_de_aspas:
-            campos.append(campo_atual.strip())  # Adiciona campo completo
+            campos.append(campo_atual.strip())
             campo_atual = ""
         else:
-            campo_atual += char  # Adiciona caractere ao campo atual
+            campo_atual += char
 
-    campos.append(campo_atual.strip())  # Adiciona o último campo
+    campos.append(campo_atual.strip())
     return campos
 
 
 def listar_compositores_ordenados(dados):
-    """Extrai a lista de compositores, remove duplicatas e ordena alfabeticamente."""
-    compositores = set()  # Usamos um set para evitar repetição
+    compositores = set()
 
     for linha in dados:
-        if len(linha) > 4:  # Supondo que o nome do compositor esteja na 5ª coluna (índice 4)
+        if len(linha) > 4:
             compositor = linha[4].strip()
-            if compositor:  # Apenas adiciona se não for uma string vazia
+            if compositor:
                 compositores.add(compositor)
 
-    return sorted(compositores)  # Retorna a lista ordenada
+    return sorted(compositores)
 
 
 def distribuicao_por_periodo(dados):
-    """Conta quantas obras estão catalogadas em cada período."""
-    distribuicao = defaultdict(int)  # Usamos defaultdict para contar automaticamente
+    distribuicao = defaultdict(int)
 
     for linha in dados:
-        if len(linha) > 3:  # Supondo que o período esteja na 6ª coluna (índice 5)
+        if len(linha) > 3:
             periodo = linha[3].strip()
-            if periodo:  # Só adiciona se o período não for vazio
+            if periodo:
                 distribuicao[periodo] += 1
 
-    # Ordena a distribuição por nome de período
-    return dict(sorted(distribuicao.items()))  # Retorna o dicionário ordenado pelo nome do período
+    return dict(sorted(distribuicao.items()))
 
 
 def dicionario_periodo_titulos(dados):
-    """Retorna um dicionário em que a cada período está associada uma lista alfabética dos títulos das obras."""
-    periodos = defaultdict(list)  # Usamos defaultdict para listas
+    periodos = defaultdict(list)
 
     for linha in dados:
-        if len(linha) > 3:  # Supondo que o título da obra esteja na 2ª coluna (índice 1) e o período na 4ª (índice 3)
+        if len(linha) > 3:
             titulo = linha[0].strip()
             periodo = linha[3].strip()
 
-            if titulo and periodo:  # Só adiciona se o título e o período não forem vazios
+            if titulo and periodo:
                 periodos[periodo].append(titulo)
 
-    # Ordena as listas de títulos alfabética por período
     for periodo in periodos:
         periodos[periodo].sort()
 
-    return dict(periodos)  # Retorna o dicionário ordenado por período
+    return dict(periodos)
 
 
 def main():
