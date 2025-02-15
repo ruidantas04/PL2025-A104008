@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 
-def limpar_csv_sem_csv(caminho_arquivo):
+def limpar_csv(caminho_arquivo):
     dados = []
     linha_atual = ""
     dentro_de_aspas = False
@@ -91,7 +91,7 @@ def dicionario_periodo_titulos(dados):
 
 def main():
     caminho_arquivo = "obras.csv"
-    dados_limpos = limpar_csv_sem_csv(caminho_arquivo)
+    dados_limpos = limpar_csv(caminho_arquivo)
 
     while True:
         print("\n=== MENU ===")
