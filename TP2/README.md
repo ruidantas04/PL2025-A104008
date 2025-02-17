@@ -156,11 +156,17 @@ O programa processa os dados de um ficheiro CSV e realiza as consultas conforme 
 
 ## Querie 2 - Distribuição das obras por período: quantas obras catalogadas em cada período
 Barroco: 26 obras
+
 Clássico: 15 obras
+
 Contemporâneo: 7 obras
+
 Medieval: 48 obras
+
 Renascimento: 41 obras
+
 Romântico: 19 obras
+
 Século XX: 18 obras
 
 ## Querie 3 - Dicionário em que a cada período está a associada uma lista alfabética dos títulos das obras desse período
