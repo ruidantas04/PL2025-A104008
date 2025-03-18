@@ -1,4 +1,4 @@
-# **Máquina de Venda Automática**  
+# **Analisador Sintático para Expressões Matemáticas**  
 
 ## **Autor**  
 Rui Gonçalves Dantas - a104008 - 2025-03-18  
