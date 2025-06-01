@@ -1,0 +1,56 @@
+=== Resultado do Teste 8 ===
+Arquivo de entrada: ./Tests/Correct/test8.txt
+Erros de sintaxe encontrados: 0
+
+Program:
+  Heading: ('program_heading', ('identifier', 'AverageThree'))
+  Block:
+    Variables:
+      VariableDeclaration:
+        Identifiers: [('identifier', 'num1'), ('identifier', 'num2'), ('identifier', 'num3'), ('identifier', 'sum')]
+        Type:
+          integer
+      VariableDeclaration:
+        Identifiers: [('identifier', 'average')]
+        Type:
+          real
+    Statements:
+      CompoundStatement:
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'Introduza três números inteiros:')))
+        ProcedureCall: readln
+          Arguments:
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'num1')))
+        ProcedureCall: readln
+          Arguments:
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'num2')))
+        ProcedureCall: readln
+          Arguments:
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'num3')))
+        AssignmentStatement:
+          Variable:
+            VariableAccess: ('identifier', 'sum')
+          Expression:
+            BinaryExpression (+):
+              Left:
+                BinaryExpression (+):
+                  Left:
+                    VariableAccess: ('identifier', 'num1')
+                  Right:
+                    VariableAccess: ('identifier', 'num2')
+              Right:
+                VariableAccess: ('identifier', 'num3')
+        AssignmentStatement:
+          Variable:
+            VariableAccess: ('identifier', 'average')
+          Expression:
+            BinaryExpression (/):
+              Left:
+                VariableAccess: ('identifier', 'sum')
+              Right:
+                Constant: ('constant', ('integer', 3))
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'A média é: ')))
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'average')))

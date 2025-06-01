@@ -1,5 +1,5 @@
 === Resultado do Teste 2 ===
-Arquivo de entrada: ./Tests/test2.txt
+Arquivo de entrada: ./Tests/Correct/test2.txt
 Erros de sintaxe encontrados: 0
 
 Program:

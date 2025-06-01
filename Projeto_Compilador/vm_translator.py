@@ -145,7 +145,7 @@ class PascalEWVMTranslator(ast.Translator[List[str]]):
         if isinstance(var, ast.VariableAccess):
             var_name = var.identifier[1]
             if var_name in self.function_addresses:
-                code.append("return")
+                pass
             elif self.current_function and var_name in self.local_variables.get(self.current_function, {}):
                 var_index, var_type, _, _ = self.local_variables[self.current_function][var_name]
                 if var_type != expr_type and not (var_type in ("integer", "real") and expr_type in ("integer", "real")):
@@ -582,3 +582,5 @@ class PascalEWVMTranslator(ast.Translator[List[str]]):
                 return "char"
             return "integer"
         raise ast.TranslationError(f"Cannot infer type for expression {expr}")
+    
+

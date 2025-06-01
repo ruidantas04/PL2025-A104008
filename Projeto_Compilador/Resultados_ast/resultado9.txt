@@ -1,0 +1,42 @@
+=== Resultado do Teste 9 ===
+Arquivo de entrada: ./Tests/Correct/test9.txt
+Erros de sintaxe encontrados: 0
+
+Program:
+  Heading: ('program_heading', ('identifier', 'ReverseString'))
+  Block:
+    Variables:
+      VariableDeclaration:
+        Identifiers: [('identifier', 's')]
+        Type:
+          string
+      VariableDeclaration:
+        Identifiers: [('identifier', 'i')]
+        Type:
+          integer
+    Statements:
+      CompoundStatement:
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'Introduza uma string:')))
+        ProcedureCall: readln
+          Arguments:
+            ('actual_parameter', VariableAccess(identifier=('identifier', 's')))
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'String invertida:')))
+        ForStatement:
+          ControlVar: ('identifier', 'i')
+          InitialValue:
+            FunctionCall:
+              Function: ('identifier', 'length')
+              Params:
+                ('actual_parameter', VariableAccess(identifier=('identifier', 's')))
+          Direction: ('direction', 'downto')
+          FinalValue:
+            Constant: ('constant', ('integer', 1))
+          Body:
+            ProcedureCall: write
+              Arguments:
+                ('actual_parameter', IndexedVariable(variable=VariableAccess(identifier=('identifier', 's')), indices=[VariableAccess(identifier=('identifier', 'i'))]))
+        ProcedureCall: writeln

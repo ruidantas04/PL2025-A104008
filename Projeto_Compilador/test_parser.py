@@ -4,7 +4,7 @@ from lexer import PascalLexer
 from view import *
 
 def process_test_file(test_number, lexer, results_dir):
-    input_file = f'./Tests/test{test_number}.txt'
+    input_file = f'./Tests/Correct/test{test_number}.txt'
     output_file = f'{results_dir}/resultado{test_number}.txt'
     
     try:
@@ -37,7 +37,7 @@ def process_test_file(test_number, lexer, results_dir):
     return True
 
 def main():
-    test_files_range = range(1, 8)
+    test_files_range = range(1, 13)
     results_dir = 'Resultados_ast'
     
     lexer = PascalLexer()

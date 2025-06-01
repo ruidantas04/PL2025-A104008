@@ -1,0 +1,77 @@
+=== Resultado do Teste 12 ===
+Arquivo de entrada: ./Tests/Correct/test12.txt
+Erros de sintaxe encontrados: 0
+
+Program:
+  Heading: ('program_heading', ('identifier', 'PowerFunction'))
+  Block:
+    Functions:
+      FunctionDeclaration:
+        Heading: ('function_heading_with_params', ('identifier', 'Power'), ('formal_parameter_list', [('formal_parameter_section', ('value_parameter', [('identifier', 'b'), ('identifier', 'e')], ('type', 'integer')))]), ('type', 'integer'))
+        Body:
+          Variables:
+            VariableDeclaration:
+              Identifiers: [('identifier', 'i'), ('identifier', 'p')]
+              Type:
+                integer
+          Statements:
+            CompoundStatement:
+              AssignmentStatement:
+                Variable:
+                  VariableAccess: ('identifier', 'p')
+                Expression:
+                  Constant: ('constant', ('integer', 1))
+              ForStatement:
+                ControlVar: ('identifier', 'i')
+                InitialValue:
+                  Constant: ('constant', ('integer', 1))
+                Direction: ('direction', 'to')
+                FinalValue:
+                  VariableAccess: ('identifier', 'e')
+                Body:
+                  AssignmentStatement:
+                    Variable:
+                      VariableAccess: ('identifier', 'p')
+                    Expression:
+                      BinaryExpression (*):
+                        Left:
+                          VariableAccess: ('identifier', 'p')
+                        Right:
+                          VariableAccess: ('identifier', 'b')
+              AssignmentStatement:
+                Variable:
+                  VariableAccess: ('identifier', 'Power')
+                Expression:
+                  VariableAccess: ('identifier', 'p')
+    Variables:
+      VariableDeclaration:
+        Identifiers: [('identifier', 'base'), ('identifier', 'exp'), ('identifier', 'result')]
+        Type:
+          integer
+    Statements:
+      CompoundStatement:
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'Introduza a base e o expoente:')))
+        ProcedureCall: readln
+          Arguments:
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'base')))
+        ProcedureCall: readln
+          Arguments:
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'exp')))
+        AssignmentStatement:
+          Variable:
+            VariableAccess: ('identifier', 'result')
+          Expression:
+            FunctionCall:
+              Function: ('identifier', 'Power')
+              Params:
+                ('actual_parameter', VariableAccess(identifier=('identifier', 'base')))
+                ('actual_parameter', VariableAccess(identifier=('identifier', 'exp')))
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'base')))
+            ('actual_parameter', Constant(value=('constant', '^')))
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'exp')))
+            ('actual_parameter', Constant(value=('constant', ' = ')))
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'result')))

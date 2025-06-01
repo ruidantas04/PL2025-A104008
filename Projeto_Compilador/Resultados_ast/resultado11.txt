@@ -1,0 +1,113 @@
+=== Resultado do Teste 11 ===
+Arquivo de entrada: ./Tests/Correct/test11.txt
+Erros de sintaxe encontrados: 0
+
+Program:
+  Heading: ('program_heading', ('identifier', 'CountVowels'))
+  Block:
+    Variables:
+      VariableDeclaration:
+        Identifiers: [('identifier', 's')]
+        Type:
+          string
+      VariableDeclaration:
+        Identifiers: [('identifier', 'i'), ('identifier', 'count')]
+        Type:
+          integer
+    Statements:
+      CompoundStatement:
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'Introduza uma string:')))
+        ProcedureCall: readln
+          Arguments:
+            ('actual_parameter', VariableAccess(identifier=('identifier', 's')))
+        AssignmentStatement:
+          Variable:
+            VariableAccess: ('identifier', 'count')
+          Expression:
+            Constant: ('constant', ('integer', 0))
+        ForStatement:
+          ControlVar: ('identifier', 'i')
+          InitialValue:
+            Constant: ('constant', ('integer', 1))
+          Direction: ('direction', 'to')
+          FinalValue:
+            FunctionCall:
+              Function: ('identifier', 'length')
+              Params:
+                ('actual_parameter', VariableAccess(identifier=('identifier', 's')))
+          Body:
+            IfStatement:
+              Condition:
+                BinaryExpression (or):
+                  Left:
+                    BinaryExpression (or):
+                      Left:
+                        BinaryExpression (or):
+                          Left:
+                            BinaryExpression (or):
+                              Left:
+                                BinaryExpression (=):
+                                  Left:
+                                    IndexedVariable:
+                                      Variable:
+                                        VariableAccess: ('identifier', 's')
+                                      Indices:
+                                        VariableAccess: ('identifier', 'i')
+                                  Right:
+                                    Constant: ('constant', 'a')
+                              Right:
+                                BinaryExpression (=):
+                                  Left:
+                                    IndexedVariable:
+                                      Variable:
+                                        VariableAccess: ('identifier', 's')
+                                      Indices:
+                                        VariableAccess: ('identifier', 'i')
+                                  Right:
+                                    Constant: ('constant', 'e')
+                          Right:
+                            BinaryExpression (=):
+                              Left:
+                                IndexedVariable:
+                                  Variable:
+                                    VariableAccess: ('identifier', 's')
+                                  Indices:
+                                    VariableAccess: ('identifier', 'i')
+                              Right:
+                                Constant: ('constant', 'i')
+                      Right:
+                        BinaryExpression (=):
+                          Left:
+                            IndexedVariable:
+                              Variable:
+                                VariableAccess: ('identifier', 's')
+                              Indices:
+                                VariableAccess: ('identifier', 'i')
+                          Right:
+                            Constant: ('constant', 'o')
+                  Right:
+                    BinaryExpression (=):
+                      Left:
+                        IndexedVariable:
+                          Variable:
+                            VariableAccess: ('identifier', 's')
+                          Indices:
+                            VariableAccess: ('identifier', 'i')
+                      Right:
+                        Constant: ('constant', 'u')
+              Then:
+                AssignmentStatement:
+                  Variable:
+                    VariableAccess: ('identifier', 'count')
+                  Expression:
+                    BinaryExpression (+):
+                      Left:
+                        VariableAccess: ('identifier', 'count')
+                      Right:
+                        Constant: ('constant', ('integer', 1))
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'Número de vogais: ')))
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'count')))
