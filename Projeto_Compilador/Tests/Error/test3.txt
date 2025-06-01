@@ -1,0 +1,9 @@
+program UndeclaredFunc;
+var
+    n, result: integer;
+begin
+    writeln('Introduza um número:');
+    readln(n);
+    result := MissingFunc(n); { Error: 'MissingFunc' is not declared }
+    writeln('Resultado: ', result);
+end.

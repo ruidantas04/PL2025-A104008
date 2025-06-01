@@ -1,0 +1,48 @@
+=== Resultado do Teste 3 ===
+Arquivo de entrada: ./Tests/test3.txt
+Erros de sintaxe encontrados: 0
+
+Program:
+  Heading: ('program_heading', ('identifier', 'Fatorial'))
+  Block:
+    Variables:
+      VariableDeclaration:
+        Identifiers: [('identifier', 'n'), ('identifier', 'i'), ('identifier', 'fat')]
+        Type:
+          integer
+    Statements:
+      CompoundStatement:
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'Introduza um número inteiro positivo:')))
+        ProcedureCall: readln
+          Arguments:
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'n')))
+        AssignmentStatement:
+          Variable:
+            VariableAccess: ('identifier', 'fat')
+          Expression:
+            Constant: ('constant', ('integer', 1))
+        ForStatement:
+          ControlVar: ('identifier', 'i')
+          InitialValue:
+            Constant: ('constant', ('integer', 1))
+          Direction: ('direction', 'to')
+          FinalValue:
+            VariableAccess: ('identifier', 'n')
+          Body:
+            AssignmentStatement:
+              Variable:
+                VariableAccess: ('identifier', 'fat')
+              Expression:
+                BinaryExpression (*):
+                  Left:
+                    VariableAccess: ('identifier', 'fat')
+                  Right:
+                    VariableAccess: ('identifier', 'i')
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'Fatorial de ')))
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'n')))
+            ('actual_parameter', Constant(value=('constant', ': ')))
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'fat')))

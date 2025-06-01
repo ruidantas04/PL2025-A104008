@@ -1,0 +1,9 @@
+program UndeclaredVar;
+var
+    a: integer;
+begin
+    writeln('Introduza um número:');
+    readln(a);
+    x := a + 1; { Error: 'x' is not declared }
+    writeln('Resultado: ', x);
+end.

@@ -1,0 +1,10 @@
+program TypeMismatch;
+var
+    num: integer;
+    s: string;
+begin
+    writeln('Introduza uma string:');
+    readln(s);
+    num := s; { Error: Assigning string to integer }
+    writeln('Número: ', num);
+end.

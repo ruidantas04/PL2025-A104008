@@ -1,0 +1,12 @@
+program ReverseString;
+var
+    s: string;
+    i: integer;
+begin
+    writeln('Introduza uma string:');
+    readln(s);
+    writeln('String invertida:');
+    for i := length(s) downto 1 do
+        write(s[i]);
+    writeln;
+end.

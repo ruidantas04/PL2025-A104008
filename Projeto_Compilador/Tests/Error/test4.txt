@@ -1,0 +1,13 @@
+program WrongParams;
+function Square(x: integer): integer;
+begin
+    Square := x * x;
+end;
+var
+    n, result: integer;
+begin
+    writeln('Introduza um número:');
+    readln(n);
+    result := Square(n, 2); { Error: 'Square' expects 1 parameter, got 2 }
+    writeln('Quadrado: ', result);
+end.

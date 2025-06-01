@@ -1,0 +1,90 @@
+=== Resultado do Teste 4 ===
+Arquivo de entrada: ./Tests/test4.txt
+Erros de sintaxe encontrados: 0
+
+Program:
+  Heading: ('program_heading', ('identifier', 'NumeroPrimo'))
+  Block:
+    Variables:
+      VariableDeclaration:
+        Identifiers: [('identifier', 'num'), ('identifier', 'i')]
+        Type:
+          integer
+      VariableDeclaration:
+        Identifiers: [('identifier', 'primo')]
+        Type:
+          boolean
+    Statements:
+      CompoundStatement:
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'Introduza um número inteiro positivo:')))
+        ProcedureCall: readln
+          Arguments:
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'num')))
+        AssignmentStatement:
+          Variable:
+            VariableAccess: ('identifier', 'primo')
+          Expression:
+            VariableAccess: ('identifier', 'true')
+        AssignmentStatement:
+          Variable:
+            VariableAccess: ('identifier', 'i')
+          Expression:
+            Constant: ('constant', ('integer', 2))
+        WhileStatement:
+          Condition:
+            BinaryExpression (and):
+              Left:
+                BinaryExpression (<=):
+                  Left:
+                    VariableAccess: ('identifier', 'i')
+                  Right:
+                    BinaryExpression (div):
+                      Left:
+                        VariableAccess: ('identifier', 'num')
+                      Right:
+                        Constant: ('constant', ('integer', 2))
+              Right:
+                VariableAccess: ('identifier', 'primo')
+          Body:
+            CompoundStatement:
+              IfStatement:
+                Condition:
+                  BinaryExpression (=):
+                    Left:
+                      BinaryExpression (mod):
+                        Left:
+                          VariableAccess: ('identifier', 'num')
+                        Right:
+                          VariableAccess: ('identifier', 'i')
+                    Right:
+                      Constant: ('constant', ('integer', 0))
+                Then:
+                  AssignmentStatement:
+                    Variable:
+                      VariableAccess: ('identifier', 'primo')
+                    Expression:
+                      VariableAccess: ('identifier', 'false')
+              AssignmentStatement:
+                Variable:
+                  VariableAccess: ('identifier', 'i')
+                Expression:
+                  BinaryExpression (+):
+                    Left:
+                      VariableAccess: ('identifier', 'i')
+                    Right:
+                      Constant: ('constant', ('integer', 1))
+        IfStatement:
+          Condition:
+            VariableAccess: ('identifier', 'primo')
+          Then:
+            ProcedureCall: writeln
+              Arguments:
+                ('actual_parameter', VariableAccess(identifier=('identifier', 'num')))
+                ('actual_parameter', Constant(value=('constant', ' é um número primo')))
+          Else:
+            ProcedureCall: writeln
+              Arguments:
+                ('actual_parameter', VariableAccess(identifier=('identifier', 'num')))
+                ('actual_parameter', Constant(value=('constant', ' não é um número primo')))

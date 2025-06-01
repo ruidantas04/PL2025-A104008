@@ -1,0 +1,13 @@
+program AverageThree;
+var
+    num1, num2, num3, sum: integer;
+    average: real;
+begin
+    writeln('Introduza três números inteiros:');
+    readln(num1);
+    readln(num2);
+    readln(num3);
+    sum := num1 + num2 + num3;
+    average := sum / 3;
+    writeln('A média é: ', average);
+end.

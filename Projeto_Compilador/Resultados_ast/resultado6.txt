@@ -1,0 +1,80 @@
+=== Resultado do Teste 6 ===
+Arquivo de entrada: ./Tests/test6.txt
+Erros de sintaxe encontrados: 0
+
+Program:
+  Heading: ('program_heading', ('identifier', 'BinarioParaInteiro'))
+  Block:
+    Variables:
+      VariableDeclaration:
+        Identifiers: [('identifier', 'bin')]
+        Type:
+          string
+      VariableDeclaration:
+        Identifiers: [('identifier', 'i'), ('identifier', 'valor'), ('identifier', 'potencia')]
+        Type:
+          integer
+    Statements:
+      CompoundStatement:
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'Introduza uma string binária:')))
+        ProcedureCall: readln
+          Arguments:
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'bin')))
+        AssignmentStatement:
+          Variable:
+            VariableAccess: ('identifier', 'valor')
+          Expression:
+            Constant: ('constant', ('integer', 0))
+        AssignmentStatement:
+          Variable:
+            VariableAccess: ('identifier', 'potencia')
+          Expression:
+            Constant: ('constant', ('integer', 1))
+        ForStatement:
+          ControlVar: ('identifier', 'i')
+          InitialValue:
+            FunctionCall:
+              Function: ('identifier', 'length')
+              Params:
+                ('actual_parameter', VariableAccess(identifier=('identifier', 'bin')))
+          Direction: ('direction', 'downto')
+          FinalValue:
+            Constant: ('constant', ('integer', 1))
+          Body:
+            CompoundStatement:
+              IfStatement:
+                Condition:
+                  BinaryExpression (=):
+                    Left:
+                      IndexedVariable:
+                        Variable:
+                          VariableAccess: ('identifier', 'bin')
+                        Indices:
+                          VariableAccess: ('identifier', 'i')
+                    Right:
+                      Constant: ('constant', '1')
+                Then:
+                  AssignmentStatement:
+                    Variable:
+                      VariableAccess: ('identifier', 'valor')
+                    Expression:
+                      BinaryExpression (+):
+                        Left:
+                          VariableAccess: ('identifier', 'valor')
+                        Right:
+                          VariableAccess: ('identifier', 'potencia')
+              AssignmentStatement:
+                Variable:
+                  VariableAccess: ('identifier', 'potencia')
+                Expression:
+                  BinaryExpression (*):
+                    Left:
+                      VariableAccess: ('identifier', 'potencia')
+                    Right:
+                      Constant: ('constant', ('integer', 2))
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'O valor inteiro correspondente é: ')))
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'valor')))

@@ -1,0 +1,55 @@
+=== Resultado do Teste 5 ===
+Arquivo de entrada: ./Tests/test5.txt
+Erros de sintaxe encontrados: 0
+
+Program:
+  Heading: ('program_heading', ('identifier', 'SomaArray'))
+  Block:
+    Variables:
+      VariableDeclaration:
+        Identifiers: [('identifier', 'numeros')]
+        Type:
+          Array[Constant(value=('constant', ('integer', 1)))..Constant(value=('constant', ('integer', 5)))] of ('type', 'integer')
+      VariableDeclaration:
+        Identifiers: [('identifier', 'i'), ('identifier', 'soma')]
+        Type:
+          integer
+    Statements:
+      CompoundStatement:
+        AssignmentStatement:
+          Variable:
+            VariableAccess: ('identifier', 'soma')
+          Expression:
+            Constant: ('constant', ('integer', 0))
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'Introduza 5 números inteiros:')))
+        ForStatement:
+          ControlVar: ('identifier', 'i')
+          InitialValue:
+            Constant: ('constant', ('integer', 1))
+          Direction: ('direction', 'to')
+          FinalValue:
+            Constant: ('constant', ('integer', 5))
+          Body:
+            CompoundStatement:
+              ProcedureCall: readln
+                Arguments:
+                  ('actual_parameter', IndexedVariable(variable=VariableAccess(identifier=('identifier', 'numeros')), indices=[VariableAccess(identifier=('identifier', 'i'))]))
+              AssignmentStatement:
+                Variable:
+                  VariableAccess: ('identifier', 'soma')
+                Expression:
+                  BinaryExpression (+):
+                    Left:
+                      VariableAccess: ('identifier', 'soma')
+                    Right:
+                      IndexedVariable:
+                        Variable:
+                          VariableAccess: ('identifier', 'numeros')
+                        Indices:
+                          VariableAccess: ('identifier', 'i')
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'A soma dos números é: ')))
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'soma')))

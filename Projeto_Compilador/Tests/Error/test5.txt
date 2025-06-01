@@ -1,0 +1,11 @@
+program ErrorArray;
+var
+    x: integer;
+    i: integer;
+begin
+    writeln('Introduza um número:');
+    readln(x);
+    for i := 1 to 5 do
+        x[i] := i; { Error: 'x' is not an array }
+    writeln('Valor: ', x[1]);
+end.

@@ -1,0 +1,12 @@
+=== Resultado do Teste 1 ===
+Arquivo de entrada: ./Tests/test1.txt
+Erros de sintaxe encontrados: 0
+
+Program:
+  Heading: ('program_heading', ('identifier', 'HelloWorld'))
+  Block:
+    Statements:
+      CompoundStatement:
+        ProcedureCall: writeln
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'Ola, Mundo!')))

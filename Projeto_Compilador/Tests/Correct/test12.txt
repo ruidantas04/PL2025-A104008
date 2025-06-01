@@ -1,0 +1,21 @@
+program PowerFunction;
+function Power(b, e: integer): integer;
+var
+    i, p: integer;
+begin
+    p := 1;
+    for i := 1 to e do
+        p := p * b;
+    Power := p;
+end;
+
+var
+    base, exp, result: integer;
+begin
+    writeln('Introduza a base e o expoente:');
+    readln(base);
+    readln(exp);
+    result := Power(base, exp);
+    writeln(base, '^', exp, ' = ', result);
+end.
+

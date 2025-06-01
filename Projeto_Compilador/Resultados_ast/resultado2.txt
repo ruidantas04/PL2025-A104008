@@ -1,0 +1,83 @@
+=== Resultado do Teste 2 ===
+Arquivo de entrada: ./Tests/test2.txt
+Erros de sintaxe encontrados: 0
+
+Program:
+  Heading: ('program_heading', ('identifier', 'Maior3'))
+  Block:
+    Variables:
+      VariableDeclaration:
+        Identifiers: [('identifier', 'num1'), ('identifier', 'num2'), ('identifier', 'num3'), ('identifier', 'maior')]
+        Type:
+          Integer
+    Statements:
+      CompoundStatement:
+        ProcedureCall: Write
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'Introduza o primeiro número: ')))
+        ProcedureCall: ReadLn
+          Arguments:
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'num1')))
+        ProcedureCall: Write
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'Introduza o segundo número: ')))
+        ProcedureCall: ReadLn
+          Arguments:
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'num2')))
+        ProcedureCall: Write
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'Introduza o terceiro número: ')))
+        ProcedureCall: ReadLn
+          Arguments:
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'num3')))
+        IfStatement:
+          Condition:
+            BinaryExpression (>):
+              Left:
+                VariableAccess: ('identifier', 'num1')
+              Right:
+                VariableAccess: ('identifier', 'num2')
+          Then:
+            IfStatement:
+              Condition:
+                BinaryExpression (>):
+                  Left:
+                    VariableAccess: ('identifier', 'num1')
+                  Right:
+                    VariableAccess: ('identifier', 'num3')
+              Then:
+                AssignmentStatement:
+                  Variable:
+                    VariableAccess: ('identifier', 'maior')
+                  Expression:
+                    VariableAccess: ('identifier', 'num1')
+              Else:
+                AssignmentStatement:
+                  Variable:
+                    VariableAccess: ('identifier', 'maior')
+                  Expression:
+                    VariableAccess: ('identifier', 'num3')
+          Else:
+            IfStatement:
+              Condition:
+                BinaryExpression (>):
+                  Left:
+                    VariableAccess: ('identifier', 'num2')
+                  Right:
+                    VariableAccess: ('identifier', 'num3')
+              Then:
+                AssignmentStatement:
+                  Variable:
+                    VariableAccess: ('identifier', 'maior')
+                  Expression:
+                    VariableAccess: ('identifier', 'num2')
+              Else:
+                AssignmentStatement:
+                  Variable:
+                    VariableAccess: ('identifier', 'maior')
+                  Expression:
+                    VariableAccess: ('identifier', 'num3')
+        ProcedureCall: WriteLn
+          Arguments:
+            ('actual_parameter', Constant(value=('constant', 'O maior é: ')))
+            ('actual_parameter', VariableAccess(identifier=('identifier', 'maior')))
